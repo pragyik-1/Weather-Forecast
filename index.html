@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1><i class="fas fa-cloud-sun"></i> Weather Forecast</h1>
+        <div class="search-container">
+          <div class="search-wrapper">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for a city..."
+              />
+            </div>
+            <div id="searchResults" class="search-results">
+              <!-- Search results will appear here -->
+            </div>
+          </div>
+          <button id="searchBtn" class="search-btn">Search</button>
+          <div class="location-btns">
+            <button
+              id="currentLocationBtn"
+              class="icon-btn"
+              title="Use Current Location"
+            >
+              <i class="fas fa-location-arrow"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Loading weather data...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="error hidden">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p id="errorMessage">Error loading weather data</p>
+        </div>
+
+        <!-- Current Weather Section -->
+        <section id="currentWeather" class="hidden">
+          <div class="current-weather-card">
+            <div class="location-info">
+              <h2 id="locationName">--</h2>
+              <p id="locationCountry">--</p>
+              <p id="currentDate">--</p>
+            </div>
+            <div class="weather-main">
+              <div class="temperature-section">
+                <div class="current-temp">
+                  <img
+                    id="currentWeatherIcon"
+                    src=""
+                    alt="Weather icon"
+                    class="weather-icon-large"
+                  />
+                  <div>
+                    <span id="currentTemp" class="temp-value">--</span>
+                    <span id="tempUnit" class="temp-unit">°C</span>
+                  </div>
+                </div>
+                <p id="currentCondition" class="condition">--</p>
+              </div>
+              <div class="weather-details">
+                <div class="detail-item">
+                  <i class="fas fa-temperature-high"></i>
+                  <div>
+                    <span class="detail-label">Feels Like</span>
+                    <span id="feelsLike" class="detail-value">--</span>
+                  </div>
+                </div>
+                <div class="detail-item">
+                  <i class="fas fa-tint"></i>
+                  <div>
+                    <span class="detail-label">Humidity</span>
+                    <span id="humidity" class="detail-value">--</span>
+                  </div>
+                </div>
+                <div class="detail-item">
+                  <i class="fas fa-wind"></i>
+                  <div>
+                    <span class="detail-label">Wind</span>
+                    <span id="windSpeed" class="detail-value">--</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hourly Forecast -->
+        <section id="hourlyForecast" class="hidden">
+          <h3><i class="fas fa-clock"></i> Hourly Forecast</h3>
+          <div class="hourly-container">
+            <div id="hourlyCards" class="hourly-cards">
+              <!-- Hourly cards will be inserted here -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Daily Forecast -->
+        <section id="dailyForecast" class="hidden">
+          <h3><i class="fas fa-calendar-alt"></i> 7-Day Forecast</h3>
+          <div id="dailyCards" class="daily-cards">
+            <!-- Daily forecast cards will be inserted here -->
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Weather data provided by
+          <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a>
+        </p>
+        <p class="footer-note">
+          Icons by
+          <a href="https://github.com/basmilius/weather-icons" target="_blank"
+            >Weather Icons</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script type="module" src="./api/geocodeApi.js"></script>
+    <script type="module" src="./api/weatherApi.js"></script>
+    <script type="module" src="./api/util.js"></script>
+    <script type="module" src="./app/app.js"></script>
+    <script type="module" src="./app/ui.js"></script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
