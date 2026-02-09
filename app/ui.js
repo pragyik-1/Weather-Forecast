@@ -83,8 +83,8 @@ export class WeatherUI {
         <div class="hourly-time">${formatTime(date)}</div>
         <img src="${getWeatherIcon(hourly.weatherCode[idx], date)}" alt="Weather" class="hourly-icon">
         <div class="hourly-temp">${formatTemperature(hourly.temperature[idx])}</div>
-        <div class="hourly-humidity">${Math.round(hourly.humidity[idx])}%</div>
-        <div class="hourly-wind">${Math.round(hourly.windSpeed[idx])} km/h</div>
+        <div class="hourly-humidity"><i class="fa-solid fa-water"></i>${Math.round(hourly.humidity[idx])}%</div>
+        <div class="hourly-wind"><i class="fa-solid fa-wind"></i>${Math.round(hourly.windSpeed[idx])} km/h</div>
       `;
 
       this.DOM.hourlyCards.appendChild(this.createCard("hourly-card", content));
@@ -109,8 +109,8 @@ export class WeatherUI {
           <span class="temp-min">${Math.round(daily.tempMin[i])}°</span>
         </div>
         <div class="daily-details">
-          <div class="daily-rain">💧 ${daily.rainTotal?.[i]?.toFixed(1) ?? 0}mm</div>
-          <div class="daily-uv">☀️ ${Math.round(daily.uvIndexMax?.[i] ?? 0)}</div>
+          <div class="daily-rain"><i class="fa-solid fa-cloud-rain"></i>${daily.rainTotal?.[i]?.toFixed(1) ?? 0}mm</div>
+          <div class="daily-uv"><i class="fa-solid fa-sun"></i>${Math.round(daily.uvIndexMax?.[i] ?? 0)}</div>
         </div>
       `;
 
