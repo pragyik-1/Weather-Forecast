@@ -55,7 +55,7 @@ function extractCity(address) {
 
 
 export async function reverseGeocode(latitude, longitude) {
-  //const url =
+  const url =
     `https://nominatim.openstreetmap.org/reverse` +
     `?format=json` +
     `&lat=${latitude}` +
