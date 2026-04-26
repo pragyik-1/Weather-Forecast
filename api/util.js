@@ -183,7 +183,7 @@ export function getWeatherIcon(
   sunset = null,
 ) {
   const baseUrl =
-    "https://basmilius.github.io/weather-icons/production/fill/all";
+    "https://raw.githubusercontent.com/basmilius/weather-icons/dev/production/fill/svg";
 
   // Determine if it's day or night
   let isDay = true;
